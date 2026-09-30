@@ -11,3 +11,7 @@ def slugify(text: str, maxlen: int = 60) -> str:
         raise ValueError("长度至少为 1")
     raw = _NON.sub("-", (text or "").strip().lower()).strip("-")
     return raw[:maxlen].strip("-")
+
+
+def slugify_lines(text: str, maxlen: int = 60) -> list[str]:
+    return [slugify(line, maxlen) for line in (text or "").splitlines() if line.strip()]
