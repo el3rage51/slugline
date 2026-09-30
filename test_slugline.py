@@ -1,6 +1,6 @@
 import unittest
 
-from slugline import slugify
+from slugline import slugify, slugify_lines
 
 
 class SluglineTest(unittest.TestCase):
@@ -8,6 +8,7 @@ class SluglineTest(unittest.TestCase):
         self.assertEqual(slugify("Hello, World!"), "hello-world")
         self.assertEqual(slugify("  a--b  "), "a-b")
         self.assertEqual(slugify("abcdef", 3), "abc")
+        self.assertEqual(slugify_lines("Hello\n\nA B"), ["hello", "a-b"])
 
 
 if __name__ == "__main__":
