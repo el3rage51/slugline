@@ -13,5 +13,9 @@ def slugify(text: str, maxlen: int = 60) -> str:
     return raw[:maxlen].strip("-")
 
 
+def is_slug(text: str, maxlen: int = 60) -> bool:
+    return bool(text) and slugify(text, maxlen) == text
+
+
 def slugify_lines(text: str, maxlen: int = 60) -> list[str]:
     return [slugify(line, maxlen) for line in (text or "").splitlines() if line.strip()]
