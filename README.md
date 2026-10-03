@@ -3,10 +3,11 @@
 Make a lowercase hyphenated slug from a title. Punctuation becomes a single hyphen. The result is trimmed to `maxlen`.
 
 ```python
-from slugline import slugify, slugify_lines
+from slugline import slugify, slugify_lines, is_slug
 
 slugify("Hello, World!")  # "hello-world"
 slugify_lines("Hello\nA B")  # ["hello", "a-b"]
+is_slug("hello-world")  # True
 ```
 
 ```bash
