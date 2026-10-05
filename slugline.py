@@ -19,3 +19,11 @@ def is_slug(text: str, maxlen: int = 60) -> bool:
 
 def slugify_lines(text: str, maxlen: int = 60) -> list[str]:
     return [slugify(line, maxlen) for line in (text or "").splitlines() if line.strip()]
+
+
+def unique_slugs(text: str, maxlen: int = 60) -> list[str]:
+    seen: list[str] = []
+    for item in slugify_lines(text, maxlen):
+        if item and item not in seen:
+            seen.append(item)
+    return seen
