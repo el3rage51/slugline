@@ -27,3 +27,7 @@ def unique_slugs(text: str, maxlen: int = 60) -> list[str]:
         if item and item not in seen:
             seen.append(item)
     return seen
+
+
+def slug_length(text: str, maxlen: int = 60) -> int:
+    return len(slugify(text, maxlen))
