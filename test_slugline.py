@@ -1,6 +1,6 @@
 import unittest
 
-from slugline import is_slug, slugify, slugify_lines, unique_slugs
+from slugline import is_slug, slug_length, slugify, slugify_lines, unique_slugs
 
 
 class SluglineTest(unittest.TestCase):
@@ -12,6 +12,7 @@ class SluglineTest(unittest.TestCase):
         self.assertTrue(is_slug("hello-world"))
         self.assertFalse(is_slug("Hello"))
         self.assertEqual(unique_slugs("Hello\nhello\nA B"), ["hello", "a-b"])
+        self.assertEqual(slug_length("Hello, World!"), 11)
 
 
 if __name__ == "__main__":
