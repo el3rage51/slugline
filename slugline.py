@@ -31,3 +31,10 @@ def unique_slugs(text: str, maxlen: int = 60) -> list[str]:
 
 def slug_length(text: str, maxlen: int = 60) -> int:
     return len(slugify(text, maxlen))
+
+
+def truncated(text: str, maxlen: int = 60) -> bool:
+    if maxlen < 1:
+        raise ValueError("长度至少为 1")
+    raw = _NON.sub("-", (text or "").strip().lower()).strip("-")
+    return len(raw) > maxlen
