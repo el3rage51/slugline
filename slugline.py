@@ -38,3 +38,7 @@ def truncated(text: str, maxlen: int = 60) -> bool:
         raise ValueError("长度至少为 1")
     raw = _NON.sub("-", (text or "").strip().lower()).strip("-")
     return len(raw) > maxlen
+
+
+def empty_slug(text: str, maxlen: int = 60) -> bool:
+    return slugify(text, maxlen) == ""
