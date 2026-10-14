@@ -42,3 +42,7 @@ def truncated(text: str, maxlen: int = 60) -> bool:
 
 def empty_slug(text: str, maxlen: int = 60) -> bool:
     return slugify(text, maxlen) == ""
+
+
+def slug_count(text: str, maxlen: int = 60) -> int:
+    return len([item for item in slugify_lines(text, maxlen) if item])
