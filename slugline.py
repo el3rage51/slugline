@@ -46,3 +46,10 @@ def empty_slug(text: str, maxlen: int = 60) -> bool:
 
 def slug_count(text: str, maxlen: int = 60) -> int:
     return len([item for item in slugify_lines(text, maxlen) if item])
+
+
+def longest_slug(text: str, maxlen: int = 60) -> int:
+    items = [item for item in slugify_lines(text, maxlen) if item]
+    if not items:
+        return 0
+    return max(len(item) for item in items)
