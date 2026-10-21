@@ -53,3 +53,10 @@ def longest_slug(text: str, maxlen: int = 60) -> int:
     if not items:
         return 0
     return max(len(item) for item in items)
+
+
+def shortest_slug(text: str, maxlen: int = 60) -> int:
+    items = [item for item in slugify_lines(text, maxlen) if item]
+    if not items:
+        return 0
+    return min(len(item) for item in items)
