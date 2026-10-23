@@ -60,3 +60,7 @@ def shortest_slug(text: str, maxlen: int = 60) -> int:
     if not items:
         return 0
     return min(len(item) for item in items)
+
+
+def slug_gap(text: str, maxlen: int = 60) -> int:
+    return longest_slug(text, maxlen) - shortest_slug(text, maxlen)
