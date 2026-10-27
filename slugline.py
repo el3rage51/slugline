@@ -64,3 +64,7 @@ def shortest_slug(text: str, maxlen: int = 60) -> int:
 
 def slug_gap(text: str, maxlen: int = 60) -> int:
     return longest_slug(text, maxlen) - shortest_slug(text, maxlen)
+
+
+def same_length(text: str, maxlen: int = 60) -> bool:
+    return slug_count(text, maxlen) > 0 and slug_gap(text, maxlen) == 0
