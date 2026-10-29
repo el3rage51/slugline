@@ -68,3 +68,8 @@ def slug_gap(text: str, maxlen: int = 60) -> int:
 
 def same_length(text: str, maxlen: int = 60) -> bool:
     return slug_count(text, maxlen) > 0 and slug_gap(text, maxlen) == 0
+
+def slug_over(text: str, limit: int, maxlen: int = 60) -> bool:
+    if limit < 0:
+        raise ValueError("上限不能为负")
+    return longest_slug(text, maxlen) > limit
