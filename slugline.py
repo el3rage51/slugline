@@ -73,3 +73,6 @@ def slug_over(text: str, limit: int, maxlen: int = 60) -> bool:
     if limit < 0:
         raise ValueError("上限不能为负")
     return longest_slug(text, maxlen) > limit
+
+def slug_even(text: str, maxlen: int = 60) -> bool:
+    return same_length(text, maxlen)
