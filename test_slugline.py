@@ -1,6 +1,6 @@
 import unittest
 
-from slugline import empty_slug, is_slug, longest_slug, same_length, shortest_slug, slug_count, slug_gap, slug_length, slugify, slugify_lines, truncated, unique_slugs, slug_over
+from slugline import empty_slug, is_slug, longest_slug, same_length, shortest_slug, slug_count, slug_gap, slug_length, slugify, slugify_lines, truncated, unique_slugs, slug_over, slug_even
 
 
 class SluglineTest(unittest.TestCase):
@@ -30,6 +30,9 @@ class SluglineTest(unittest.TestCase):
 
         self.assertTrue(slug_over("Hello", 3))
         self.assertFalse(slug_over("Hello", 5))
+
+        self.assertTrue(slug_even("Hello\nWorld"))
+        self.assertFalse(slug_even("Hello\n\nA B"))
 
 if __name__ == "__main__":
     unittest.main()
